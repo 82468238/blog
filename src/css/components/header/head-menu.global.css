@@ -1,0 +1,42 @@
+#headMenu {
+    float: right;
+    height: 64px;
+}
+
+#headMenu>.ant-menu-horizontal {
+    border-bottom: none;
+}
+
+#headMenu>.ant-menu {
+    height: 64px;
+    line-height: 60px;
+}
+
+#headMenu>.ant-menu>.ant-menu-item {
+    height: 64px;
+    line-height: 60px;
+    border-top: 2px solid transparent;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#headMenu .ant-menu-submenu {
+    height: 64px;
+    line-height: 64px;
+}
+
+#headMenu .ant-menu-submenu-horizontal {
+    border-bottom: none;
+}
+
+#headMenu .ant-menu-horizontal>.ant-menu-item-selected, #headMenu .ant-menu-horizontal>.ant-menu-item:hover {
+    border-top: 2px solid #1890ff;
+    border-bottom: 2px solid transparent;
+    line-height: 60px;
+}
+
+#headMenu .ant-menu-horizontal>.ant-menu-submenu-open {
+    border-top: 2px solid #1890ff;
+    border-bottom: none;
+    line-height: 60px;
+}

@@ -27,28 +27,26 @@
 }
 
 .headMenu {
-    padding: 0px 40px;
+    /*padding: 0px 40px;*/
+    overflow: hidden;
 }
 
 .navPhoneIcon {
-    width: 20px;
+    width: 40px;
     height: 20px;
-    display: none;
+    display: block;
     position: absolute;
     cursor: pointer;
-    right: 30px;
+    right: 20px;
     top: 22px;
     font-size: 20px;
     color: #666;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 769px) {
     .logo {
         width: 200px;
         margin: 0px auto;
         padding: 0px;
-    }
-    .navPhoneIcon {
-        display: block;
     }
 }

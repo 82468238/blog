@@ -1,0 +1,12 @@
+#mobileHeaderMenu{
+}
+
+.ant-popover-inner-content{
+    padding: 3px 0px;
+}
+
+#mobileHeaderMenu .ant-menu-item{
+    font-size: 13.5px;
+    font-weight: 500;
+    margin: 4px 0px;
+}

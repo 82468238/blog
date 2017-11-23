@@ -1,12 +1,11 @@
 import React from 'react';
 import appCss from '../css/app.css';
-import PcHeader from './components/header/pc-header';
-import MobileHeader from './components/header/mobile-header';
+import Header from './components/header/header';
 
 class App extends React.Component {
     render() {
         return (<div>
-            <PcHeader></PcHeader>
+            <Header></Header>
         </div>)
     };
 }
