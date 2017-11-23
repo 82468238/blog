@@ -26,21 +26,33 @@ class MediaQuery extends React.Component {
         window.removeEventListener("resize", this.onResize);
     }
 
+    shouldComponentUpdate(nextProps,nextState){
+        if(this.state.visible !== nextState.visible){
+            return true;
+        }
+        return false;
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        var visible = this.checkVisible();
+        this.setState({
+            visible: this.checkVisible()
+        });
+    }
+
     onResize = () => {
         clearTimeout(this.lastSetTimeoutId);
         this.lastSetTimeoutId = setTimeout(()=>{
             var visible = this.checkVisible();
-            if(visible != this.state.visible){
-                this.setState({
-                    visible: this.checkVisible()
-                });
-            }
-        },200);
+            this.setState({
+                visible: this.checkVisible()
+            });
+        },100);
     }
 
     checkVisible = () => {
-        var width = document.body.clientWidth;
-        var height = document.body.clientHeight;
+        var width = document.documentElement.clientWidth;
+        var height = document.documentElement.clientWidth;
         if((this.props.maxWidth != null ? width >= this.props.maxWidth : true)
             && (this.props.minWidth != null ? width < this.props.minWidth : true)
             && (this.props.maxHeight != null ? height >= this.props.maxHeight : true)
