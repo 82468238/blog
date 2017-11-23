@@ -26,27 +26,24 @@ class MediaQuery extends React.Component {
         window.removeEventListener("resize", this.onResize);
     }
 
-    shouldComponentUpdate(nextProps,nextState){
-        if(this.state.visible !== nextState.visible){
-            return true;
-        }
-        return false;
-    }
-
     componentDidUpdate(prevProps, prevState) {
         var visible = this.checkVisible();
-        this.setState({
-            visible: this.checkVisible()
-        });
+        if(visible != this.state.visible){
+            this.setState({
+                visible: this.checkVisible()
+            });
+        }
     }
 
     onResize = () => {
         clearTimeout(this.lastSetTimeoutId);
         this.lastSetTimeoutId = setTimeout(()=>{
             var visible = this.checkVisible();
-            this.setState({
-                visible: this.checkVisible()
-            });
+            if(visible != this.state.visible){
+                this.setState({
+                    visible: this.checkVisible()
+                });
+            }
         },100);
     }
 
@@ -63,7 +60,6 @@ class MediaQuery extends React.Component {
     }
 
     render() {
-        console.log("render");
         return (<div>
                 {this.state.visible == true ? this.props.children : ""}
             </div>);
