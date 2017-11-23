@@ -8,18 +8,8 @@ import MediaQuery from '../common/media-query';
 class Header extends React.Component {
     constructor(props) {
         super(props);
-        var width = document.body.clientWidth;
-        var device = "PC";
-        if (width < 500) {
-            device = "SmailMobile";
-        }
-        if (width < 768) {
-            device = "Mobile";
-        }
         this.state = {
-            device: device,
             popoverVisible: false,
-            popoverWidth:300,
             current: "home"
         };
     }
@@ -31,17 +21,6 @@ class Header extends React.Component {
     componentWillMount() {
         window.removeEventListener("resize", this.onResize);
     }
-
-    // onResize = () => {
-    //     var width = document.body.clientWidth;
-    //     if (width >= 768 && this.state.device != "PC") {
-    //         this.setState({device: "PC"});
-    //     } else if (width > 500 && width < 768 && this.state.device != "Mobile") {
-    //         this.setState({device: "Mobile"});
-    //     } else if (width < 500 && this.state.device != "SmailMobile") {
-    //         this.setState({device: "SmailMobile"});
-    //     }
-    // }
 
     handleVisibleChange = (visible) => {
         this.setState({popoverVisible: visible});
