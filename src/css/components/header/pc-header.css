@@ -1,0 +1,54 @@
+.header {
+    width: 100%;
+    height: 64px;
+    color: #fff;
+}
+
+.logo {
+    display: block;
+    height: 64px;
+    padding: 0px 40px;
+}
+
+.logo>img {
+    width: 64px;
+    height: 64px;
+    margin-top: 0px;
+    float: left;
+}
+
+.logo>span {
+    height: 64px;
+    line-height: 64px;
+    font-size: 14px;
+    margin-left: 5px;
+    float: left;
+    color: ##3f8de2;
+}
+
+.headMenu {
+    padding: 0px 40px;
+}
+
+.navPhoneIcon {
+    width: 20px;
+    height: 20px;
+    display: none;
+    position: absolute;
+    cursor: pointer;
+    right: 30px;
+    top: 22px;
+    font-size: 20px;
+    color: #666;
+}
+
+@media only screen and (max-width: 768px) {
+    .logo {
+        width: 200px;
+        margin: 0px auto;
+        padding: 0px;
+    }
+    .navPhoneIcon {
+        display: block;
+    }
+}
