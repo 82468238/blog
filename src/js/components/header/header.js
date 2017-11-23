@@ -3,6 +3,7 @@ import headerCss from '~/css/components/header/header.css';
 import {Row, Col, Icon, Popover} from 'antd';
 import HeadMenu from './head-menu';
 import MobileMenu from './mobile-menu';
+import MediaQuery from '../common/media-query';
 
 class Header extends React.Component {
     constructor(props) {
@@ -31,16 +32,16 @@ class Header extends React.Component {
         window.removeEventListener("resize", this.onResize);
     }
 
-    onResize = () => {
-        var width = document.body.clientWidth;
-        if (width >= 768 && this.state.device != "PC") {
-            this.setState({device: "PC"});
-        } else if (width > 500 && width < 768 && this.state.device != "Mobile") {
-            this.setState({device: "Mobile"});
-        } else if (width < 500 && this.state.device != "SmailMobile") {
-            this.setState({device: "SmailMobile"});
-        }
-    }
+    // onResize = () => {
+    //     var width = document.body.clientWidth;
+    //     if (width >= 768 && this.state.device != "PC") {
+    //         this.setState({device: "PC"});
+    //     } else if (width > 500 && width < 768 && this.state.device != "Mobile") {
+    //         this.setState({device: "Mobile"});
+    //     } else if (width < 500 && this.state.device != "SmailMobile") {
+    //         this.setState({device: "SmailMobile"});
+    //     }
+    // }
 
     handleVisibleChange = (visible) => {
         this.setState({popoverVisible: visible});
@@ -61,20 +62,21 @@ class Header extends React.Component {
                     </a>
                 </Col>
                 <Col xs={0} sm={13} md={14} lg={14} xl={16} className={headerCss.headMenu}>
-                    {
-                        this.state.device == "PC"
-                            ? <HeadMenu current={this.state.current} onClick={this.MenuItemOnClick}></HeadMenu>
-                            : ""
-                    }
+                    <MediaQuery maxWidth={123}>
+                        <HeadMenu current={this.state.current} onClick={this.MenuItemOnClick}></HeadMenu>
+                    </MediaQuery>
                 </Col>
             </Row>
-            {
-                this.state.device != "PC"
-                    ? <Popover trigger="click" placement="bottomRight" content={<MobileMenu current={this.state.current} onClick={this.MenuItemOnClick} style = {{width:300}} > </MobileMenu>} visible={this.state.popoverVisible} onVisibleChange={this.handleVisibleChange}>
-                            <Icon type="bars" className={headerCss.navPhoneIcon}/>
-                        </Popover>
-                    : ""
-            }
+            <MediaQuery minWidth={768} maxWidth={350}>
+                <Popover trigger="click" placement="bottomRight" content={<MobileMenu current={this.state.current} onClick={this.MenuItemOnClick} style = {{width:300}} > </MobileMenu>} visible={this.state.popoverVisible} onVisibleChange={this.handleVisibleChange}>
+                    <Icon type="bars" className={headerCss.navPhoneIcon}/>
+                </Popover>
+            </MediaQuery>
+            <MediaQuery minWidth={350}>
+                <Popover trigger="click" placement="bottomRight" content={<MobileMenu current={this.state.current} onClick={this.MenuItemOnClick} style = {{width:280}} > </MobileMenu>} visible={this.state.popoverVisible} onVisibleChange={this.handleVisibleChange}>
+                    <Icon type="bars" className={headerCss.navPhoneIcon}/>
+                </Popover>
+            </MediaQuery>
         </header>);
     };
 }
