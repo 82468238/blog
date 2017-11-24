@@ -43,6 +43,26 @@
     color: #666;
 }
 
+.githubIcon {
+    width: 82px;
+    height: 32px;
+    display: block;
+    font-size: 16px;
+    color: #595959;
+    margin: 0px auto;
+    border: 1px #ccc solid;
+    padding: 0px 13px;
+    line-height: 31px;
+    border-radius: 20px;
+    margin-top: 14px;
+    font-weight: 500;
+}
+
+.githubIcon:hover{
+    border: 1px #40a9ff solid;
+    color: #595959;
+}
+
 @media only screen and (max-width: 769px) {
     .logo {
         width: 200px;

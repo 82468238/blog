@@ -40,11 +40,14 @@ class Header extends React.Component {
                         <span>EXPRESS QUERY</span>
                     </a>
                 </Col>
-                <Col xs={0} sm={13} md={14} lg={14} xl={16} className={headerCss.headMenu}>
-                    <MediaQuery maxWidth={123}>
+                <MediaQuery maxWidth={768}>
+                    <Col xs={0} sm={12} md={13} lg={14} xl={16} className={headerCss.headMenu}>
                         <HeadMenu current={this.state.current} onClick={this.MenuItemOnClick}></HeadMenu>
-                    </MediaQuery>
-                </Col>
+                    </Col>
+                    <Col xs={0} sm={3} md={3} lg={2} xl={2}>
+                        <a className={headerCss.githubIcon} href="https://github.com/82468238/"><Icon type="github" style={{ fontSize: 14}} /> Star</a>
+                    </Col>
+                </MediaQuery>
             </Row>
             <MediaQuery minWidth={768} maxWidth={350}>
                 <Popover trigger="click" placement="bottomRight" content={<MobileMenu current={this.state.current} onClick={this.MenuItemOnClick} style = {{width:300}} > </MobileMenu>} visible={this.state.popoverVisible} onVisibleChange={this.handleVisibleChange}>
