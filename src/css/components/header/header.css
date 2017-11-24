@@ -11,10 +11,11 @@
 }
 
 .logo>img {
-    width: 64px;
-    height: 64px;
-    margin-top: 0px;
+    width: 35px;
+    height: 35px;
+    margin: 13px 5px 0px 0px;
     float: left;
+    border-radius: 35px;
 }
 
 .logo>span {

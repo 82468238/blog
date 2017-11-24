@@ -36,8 +36,8 @@ class Header extends React.Component {
             <Row>
                 <Col xs={24} sm={9} md={8} lg={8} xl={6}>
                     <a href="/" className={headerCss.logo}>
-                        <img src={require('~/img/logo.png')}/>
-                        <span>EXPRESS QUERY</span>
+                        <img src={require('~/img/IMG_0061.jpg')}/>
+                        <span>我只会写Bug</span>
                     </a>
                 </Col>
                 <MediaQuery maxWidth={768}>
@@ -45,7 +45,7 @@ class Header extends React.Component {
                         <HeadMenu current={this.state.current} onClick={this.MenuItemOnClick}></HeadMenu>
                     </Col>
                     <Col xs={0} sm={3} md={3} lg={2} xl={2}>
-                        <a className={headerCss.githubIcon} href="https://github.com/82468238/"><Icon type="github" style={{ fontSize: 14}} /> Star</a>
+                        <a target="_blank" className={headerCss.githubIcon} href="https://github.com/82468238/blog"><Icon type="github" style={{ fontSize: 14}} /> Star</a>
                     </Col>
                 </MediaQuery>
             </Row>
