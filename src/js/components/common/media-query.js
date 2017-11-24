@@ -49,7 +49,7 @@ class MediaQuery extends React.Component {
 
     checkVisible = () => {
         var width = document.documentElement.clientWidth;
-        var height = document.documentElement.clientWidth;
+        var height = document.documentElement.clientHeight;
         if((this.props.maxWidth != null ? width >= this.props.maxWidth : true)
             && (this.props.minWidth != null ? width < this.props.minWidth : true)
             && (this.props.maxHeight != null ? height >= this.props.maxHeight : true)
