@@ -5,8 +5,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     context: __dirname + "/src",
-    entry: './js/root.js',
-    {
+    //entry: './js/root.js',
+    entry: {
         bundle: './js/root.js',
         vendor: ['react', 'react-dom', 'react-router', 'antd']
     },
