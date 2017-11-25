@@ -6,10 +6,10 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
     context: __dirname + "/src",
     entry: './js/root.js',
-    // {
-    //     bundle: './js/root.js',
-    //     vendor: ['react', 'react-dom', 'react-router', 'antd']
-    // },
+    {
+        bundle: './js/root.js',
+        vendor: ['react', 'react-dom', 'react-router', 'antd']
+    },
     module: {
         rules: [
             {
@@ -120,22 +120,22 @@ module.exports = {
     plugins: [
         new ExtractTextPlugin("style.css"),
         //把引入的React切换到产品版本
-        // new webpack.DefinePlugin({
-        //     'process.env.NODE_ENV': '"production"'
-        // }),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': '"production"'
+        }),
         //压缩插件UglifyJsPlugin
         //删除所有注释
-        // new webpack.optimize.UglifyJsPlugin({
-        //     output: {
-        //         comments: false
-        //     },
-        //     compress: {
-        //         warnings: false
-        //     }
-        // }),
-        // new webpack.optimize.CommonsChunkPlugin({
-        //     name: 'vendor',
-        //     filename: "vendor.js",
-        // })
+        new webpack.optimize.UglifyJsPlugin({
+            output: {
+                comments: false
+            },
+            compress: {
+                warnings: false
+            }
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            filename: "vendor.js",
+        })
     ]
 }
