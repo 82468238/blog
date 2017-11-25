@@ -37,7 +37,7 @@ module.exports = {
                             loader: "css-loader",
                             options: {
                                 //css压缩
-                                //minimize: true,
+                                minimize: true,
                             }
                         }, {
                             loader: "resolve-url-loader"
@@ -70,7 +70,7 @@ module.exports = {
                                 //css模块化
                                 modules: true,
                                 //css压缩
-                                //minimize: true,
+                                minimize: true,
                                 //css class样式后面自动跟随base64代码防止class重复
                                 localIdentName: "[local]_[hash:base64:8]"
                             }
@@ -100,7 +100,7 @@ module.exports = {
                         loader: "css-loader",
                         options: {
                             importLoaders: 1,
-                            //minimize: true,
+                            minimize: true,
                         }
                     }
                 })
@@ -126,6 +126,7 @@ module.exports = {
         //压缩插件UglifyJsPlugin
         //删除所有注释
         new webpack.optimize.UglifyJsPlugin({
+            minimize: true,
             output: {
                 comments: false
             },
