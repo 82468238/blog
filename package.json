@@ -5,7 +5,7 @@
   "main": "root.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --inline --hot --host 120.76.145.63"
+    "dev": "webpack-dev-server --inline --hot --host zhousong.top"
   },
   "author": "",
   "license": "ISC",
