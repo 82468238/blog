@@ -1,9 +1,9 @@
 import React from 'react';
-import headerCss from '~/css/components/header/header.css';
+import headerCss from './header.css';
 import {Row, Col, Icon, Popover} from 'antd';
 import HeadMenu from './head-menu';
 import MobileMenu from './mobile-menu';
-import MediaQuery from '../common/media-query';
+import MediaSensor from '../common/media-sensor';
 
 class Header extends React.Component {
     constructor(props) {
@@ -40,25 +40,25 @@ class Header extends React.Component {
                         <span>我只会写Bug</span>
                     </a>
                 </Col>
-                <MediaQuery maxWidth={768}>
+                <MediaSensor maxWidth={768}>
                     <Col xs={0} sm={12} md={13} lg={14} xl={16} className={headerCss.headMenu}>
                         <HeadMenu current={this.state.current} onClick={this.MenuItemOnClick}></HeadMenu>
                     </Col>
                     <Col xs={0} sm={3} md={3} lg={2} xl={2}>
                         <a target="_blank" className={headerCss.githubIcon} href="https://github.com/82468238/blog"><Icon type="github" style={{ fontSize: 14}} /> Star</a>
                     </Col>
-                </MediaQuery>
+                </MediaSensor>
             </Row>
-            <MediaQuery minWidth={768} maxWidth={350}>
+            <MediaSensor minWidth={768} maxWidth={350}>
                 <Popover trigger="click" placement="bottomRight" content={<MobileMenu current={this.state.current} onClick={this.MenuItemOnClick} style = {{width:300}} > </MobileMenu>} visible={this.state.popoverVisible} onVisibleChange={this.handleVisibleChange}>
                     <Icon type="bars" className={headerCss.navPhoneIcon}/>
                 </Popover>
-            </MediaQuery>
-            <MediaQuery minWidth={350}>
+            </MediaSensor>
+            <MediaSensor minWidth={350}>
                 <Popover trigger="click" placement="bottomRight" content={<MobileMenu current={this.state.current} onClick={this.MenuItemOnClick} style = {{width:280}} > </MobileMenu>} visible={this.state.popoverVisible} onVisibleChange={this.handleVisibleChange}>
                     <Icon type="bars" className={headerCss.navPhoneIcon}/>
                 </Popover>
-            </MediaQuery>
+            </MediaSensor>
         </header>);
     };
 }

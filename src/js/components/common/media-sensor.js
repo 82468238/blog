@@ -1,13 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class MediaQuery extends React.Component {
+class MediaSensor extends React.Component {
 
     static defaultProps = {
         maxWidth: null,
         minWidth: null,
         maxHeight: null,
         minHeight: null
+    }
+
+    static propTypes = {
+        maxWidth: PropTypes.number,
+        minWidth: PropTypes.number,
+        maxHeight: PropTypes.number,
+        minHeight: PropTypes.number
     }
 
     constructor(props) {
@@ -66,11 +73,4 @@ class MediaQuery extends React.Component {
     }
 }
 
-MediaQuery.propTypes = {
-    maxWidth: PropTypes.number,
-    minWidth: PropTypes.number,
-    maxHeight: PropTypes.number,
-    minHeight: PropTypes.number
-}
-
-export default MediaQuery;
+export default MediaSensor;

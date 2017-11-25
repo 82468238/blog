@@ -49,7 +49,7 @@
     height: 32px;
     display: block;
     font-size: 16px;
-    color: #595959;
+    color: rgba(0,0,0,0.65);
     margin: 0px auto;
     border: 1px #ccc solid;
     padding: 0px 13px;

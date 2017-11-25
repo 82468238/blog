@@ -1,0 +1,6 @@
+
+
+.ant-card-padding-transition .ant-card-body {
+    -webkit-transition: padding 0s;
+    transition: padding 0s;
+}
