@@ -21,16 +21,15 @@
 }
 
 .contentText{
-    background: gray;
+
 }
 
 .contentImg{
-    background: pink;
+
 }
 
 .meta{
     max-width: 100%;
     height: 30px;
     overflow: hidden;
-
 }

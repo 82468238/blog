@@ -10,7 +10,8 @@ class Header extends React.Component {
         super(props);
         this.state = {
             popoverVisible: false,
-            current: "home"
+            current: "home",
+            navPhoneIconHover: false
         };
     }
 
@@ -23,12 +24,19 @@ class Header extends React.Component {
     }
 
     handleVisibleChange = (visible) => {
-        this.setState({popoverVisible: visible});
+        console.log("navPhoneIconOnClick");
+        this.setState({
+            popoverVisible: visible,
+            navPhoneIconHover: !this.state.navPhoneIconHover
+        });
     }
 
     MenuItemOnClick = (e) => {
-        this.setState({current: e.key});
+        this.setState({
+            current: e.key
+        });
     }
+
 
     render() {
         console.log("render");
@@ -51,12 +59,12 @@ class Header extends React.Component {
             </Row>
             <MediaSensor minWidth={768} maxWidth={350}>
                 <Popover trigger="click" placement="bottomRight" content={<MobileMenu current={this.state.current} onClick={this.MenuItemOnClick} style = {{width:300}} > </MobileMenu>} visible={this.state.popoverVisible} onVisibleChange={this.handleVisibleChange}>
-                    <Icon type="bars" className={headerCss.navPhoneIcon}/>
+                    <div className={headerCss.navPhoneIcon + (this.state.navPhoneIconHover ? " " + headerCss.hover : "")}></div>
                 </Popover>
             </MediaSensor>
             <MediaSensor minWidth={350}>
                 <Popover trigger="click" placement="bottomRight" content={<MobileMenu current={this.state.current} onClick={this.MenuItemOnClick} style = {{width:280}} > </MobileMenu>} visible={this.state.popoverVisible} onVisibleChange={this.handleVisibleChange}>
-                    <Icon type="bars" className={headerCss.navPhoneIcon}/>
+                    <div className={headerCss.navPhoneIcon + (this.state.navPhoneIconHover ? " " + headerCss.hover : "")}></div>
                 </Popover>
             </MediaSensor>
         </header>);

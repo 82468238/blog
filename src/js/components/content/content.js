@@ -17,10 +17,6 @@ class Content extends React.Component {
                 <Col xs={23} sm={23} md={22} lg={22} xl={20} style={{margin:'0px auto',float:'none'}}>
                     <ContentCard title="测试"></ContentCard>
                     <ContentCard title="测试"></ContentCard>
-                    <ContentCard title="测试"></ContentCard>
-                    <ContentCard title="测试"></ContentCard>
-                    <ContentCard title="测试"></ContentCard>
-                    <ContentCard title="测试"></ContentCard>
                 </Col>
             </Row>
         </div>);

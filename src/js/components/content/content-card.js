@@ -13,9 +13,9 @@ class ContentCard extends React.Component {
 
 
     render() {
-        // setTimeout(() => {
-        //     this.setState({loading: false});
-        // }, 2000);
+        setTimeout(() => {
+            this.setState({loading: false});
+        }, 2000);
         return (<div>
             <Card loading={this.state.loading} bordered={false} noHovering={true}>
                 <div className={ContentCardCss.title}>{this.props.title}</div>

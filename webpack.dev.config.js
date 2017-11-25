@@ -1,7 +1,8 @@
 var webpack = require('webpack');
 var path = require('path');
 var autoprefixer = require('autoprefixer');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
     context: __dirname + "/src",
@@ -114,6 +115,7 @@ module.exports = {
         }
     },
     plugins: [
+        new OpenBrowserPlugin({ url: 'http://localhost:8080' }),
         new ExtractTextPlugin("style.css"),
         //把引入的React切换到产品版本
         // new webpack.DefinePlugin({
