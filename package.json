@@ -5,7 +5,8 @@
   "main": "root.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --inline --hot --host zhousong.top --compress --progress --quiet"
+    "dev": "webpack-dev-server --config webpack-dev.config.js --inline --hot",
+    "start": "webpack-dev-server --inline --hot --host zhousong.top --compress --progress --quiet"
   },
   "author": "",
   "license": "ISC",
