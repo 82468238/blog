@@ -19,13 +19,15 @@ class ContentCard extends React.Component {
         return (<div>
             <Card loading={this.state.loading} bordered={false} noHovering={true}>
                 <div className={ContentCardCss.title}>{this.props.title}</div>
-                <div className={ContentCardCss.content}>
-                    <Row>
-                        <Col xs={24} sm={16} md={17} lg={18} xl={20}>
+                <div className={ContentCardCss.content} style={{background:'#ccc'}}>
+                    <Row style={{height:'100%'}}>
+                        <Col xs={24} sm={16} md={17} lg={18} xl={20} style={{height:'100%'}}>
                             <div className={ContentCardCss.contentText}>这里是内容</div>
                         </Col>
-                        <Col xs={24} sm={8} md={7} lg={6} xl={6}>
-                            <div className={ContentCardCss.contentImg}>这里是图片</div>
+                        <Col xs={24} sm={8} md={7} lg={6} xl={6} style={{height:'100%'}}>
+                            <div className={ContentCardCss.contentImg}>
+                                <img src={require('~/img/bg.jpg')}></img>
+                            </div>
                         </Col>
                     </Row>
                 </div>

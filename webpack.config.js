@@ -24,7 +24,7 @@ module.exports = {
                     loader: 'url-loader',
                     options: {
                         limit: 8192,
-                        name: './img/[name].[hash:8].[ext]'
+                        name: 'img/[name].[hash:8].[ext]'
                     }
                 }
             }, {
@@ -37,7 +37,7 @@ module.exports = {
                             loader: "css-loader",
                             options: {
                                 //css压缩
-                                minimize: true,
+                                minimize: true
                             }
                         }, {
                             loader: "resolve-url-loader"
@@ -100,7 +100,7 @@ module.exports = {
                         loader: "css-loader",
                         options: {
                             importLoaders: 1,
-                            minimize: true,
+                            minimize: true
                         }
                     }
                 })
@@ -114,14 +114,16 @@ module.exports = {
     },
     resolve: {
         alias: {
-            '~': path.resolve(__dirname, './src')
+            '~': path.resolve(__dirname, 'src')
         }
     },
     plugins: [
         new ExtractTextPlugin("style.css"),
         //把引入的React切换到产品版本
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': '"production"'
+            'process.env': {
+                'NODE_ENV': '"production"'
+            }
         }),
         //压缩插件UglifyJsPlugin
         //删除所有注释
@@ -134,9 +136,6 @@ module.exports = {
                 warnings: false
             }
         }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            filename: "vendor.js",
-        })
+        new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: "vendor.js"})
     ]
 }

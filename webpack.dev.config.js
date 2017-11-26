@@ -21,7 +21,7 @@ module.exports = {
                     loader: 'url-loader',
                     options: {
                         limit: 8192,
-                        name: './img/[name].[hash:8].[ext]'
+                        name: 'img/[name].[hash:8].[ext]'
                     }
                 }
             }, {
@@ -111,7 +111,7 @@ module.exports = {
     },
     resolve: {
         alias: {
-            '~': path.resolve(__dirname, './src')
+            '~': path.resolve(__dirname, 'src')
         }
     },
     plugins: [
