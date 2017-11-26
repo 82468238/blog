@@ -44,31 +44,35 @@
     color: #666;
 }
 
-
 .navPhoneIcon:before, .navPhoneIcon:after {
     position: relative;
     content: "";
     display: block;
     width: 22px;
     height: 3px;
-    background: rgba(0,0,0,0.65);
+    background: rgba(0, 0, 0, 0.65);
     border-radius: 8px;
-    -webkit-transition: all 0.15s ease-in-out;
     transition: all 0.15s ease-in-out;
 }
 
 .navPhoneIcon:before {
     top: 5px;
-    -webkit-box-shadow: 0 8px rgba(0,0,0,0.65);
-            box-shadow: 0 8px rgba(0,0,0,0.65);
+    box-shadow: 0 8px rgba(0, 0, 0, 0.65);
 }
 
 .navPhoneIcon:after {
     bottom: 5px;
 }
 
-.navPhoneIcon.hover:before { -webkit-box-shadow: none; box-shadow: none; -webkit-transform: rotate(225deg); transform: rotate(225deg); }
-.navPhoneIcon.hover:after { bottom: -2px; -webkit-transform: rotate(135deg); transform: rotate(135deg); }
+.navPhoneIcon.hover:before {
+    box-shadow: none;
+    transform: rotate(225deg);
+}
+
+.navPhoneIcon.hover:after {
+    bottom: -2px;
+    transform: rotate(135deg);
+}
 
 .githubIcon {
     width: 82px;
