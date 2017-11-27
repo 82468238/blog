@@ -1,4 +1,11 @@
 
+.ant-card-wider-padding .ant-card-body{
+    padding: 15px 20px;
+}
+
+.ant-card-loading-content{
+    padding: 0px;
+}
 
 .ant-card-padding-transition .ant-card-body {
     -webkit-transition: padding 0s;
