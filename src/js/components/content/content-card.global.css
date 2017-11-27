@@ -1,5 +1,5 @@
 
-.ant-card-wider-padding .ant-card-body{
+.ant-card-wider-padding .ant-card-body, .ant-card-body, .ant-card-loading .ant-card-body{
     padding: 15px 20px;
 }
 
