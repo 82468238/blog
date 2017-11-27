@@ -17,15 +17,10 @@ class ContentCard extends React.Component {
         title: "标题",
         content: "内容",
         loading: true,
-        tags: [
-            {
+        tags: {
                 id: 0,
                 name: "有些话只能在这里说"
-            },{
-                id: 1,
-                name: "青春"
-            }
-        ],
+        },
         viewStatisNum: 1258,
         viewStarNum: 15
     }
@@ -47,11 +42,11 @@ class ContentCard extends React.Component {
         var tags = this.props.tags;
         var result = [];
         if(tags != null){
-            for(var i = 0, len = tags.length; i < len; i++){
-                result.push(<li key={i} className={ContentCardCss.tag}><Icon type="tag" style={{marginRight:'2px'}} />{tags[i].name}</li>);
-            }
+            // for(var i = 0, len = tags.length; i < len; i++){
+            //     result.push(<li key={i} className={ContentCardCss.tag}><Icon type="tag" style={{marginRight:'2px'}} />{tags[i].name}</li>);
+            // }
+            result.push(<li key={1} className={ContentCardCss.tag}><Icon type="tag" style={{marginRight:'2px'}} />{tags.name}</li>);
         }
-        console.log()
         return result;
     }
 
