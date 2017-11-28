@@ -14,15 +14,7 @@ class ContentCard extends React.Component {
 
     static defaultProps = {
         type: "normal",
-        title: "标题",
-        content: "内容",
-        loading: true,
-        tags: {
-                id: 0,
-                name: "有些话只能在这里说"
-        },
-        viewStatisNum: 1258,
-        viewStarNum: 15
+        loading: true
     }
 
     static propTypes = {
@@ -34,8 +26,9 @@ class ContentCard extends React.Component {
             id: propTypes.number,
             name: propTypes.string
         }).isRequired,
-        viewStatisNum: propTypes.number.isRequired,
-        viewStarNum: propTypes.number.isRequired
+        viewStatisNum: propTypes.number,
+        viewCommentNum: propTypes.number,
+        viewStarNum: propTypes.number
     }
 
     getTags = () => {
@@ -71,8 +64,9 @@ class ContentCard extends React.Component {
                         {this.getTags()}
                     </ul>
                     <div className={ContentCardCss.statis}>
-                        <div className={ContentCardCss.viewStatis}><Icon type="eye" style={{marginRight:'2px',color:'#999'}} /><div className={ContentCardCss.viewStatisNum}>{this.props.viewStatisNum}</div></div>
-                        <div className={ContentCardCss.starStatis}><Icon type="heart" style={{marginRight:'2px',color:'#999'}} /><div className={ContentCardCss.viewStatisNum}>{this.props.viewStarNum}</div></div>
+                        {this.props.viewStatisNum != null ? <div className={ContentCardCss.viewStatis}><Icon type="eye" style={{marginRight:'2px',color:'#999'}} /><div className={ContentCardCss.viewStatisNum}>{this.props.viewStatisNum}</div></div> : ""}
+                        {this.props.viewCommentNum != null ? <div className={ContentCardCss.commentStatis}><Icon type="mail" style={{marginRight:'2px',color:'#999'}} /><div className={ContentCardCss.viewStatisNum}>{this.props.viewCommentNum}</div></div> : ""}
+                        {this.props.viewStarNum != null ? <div className={ContentCardCss.starStatis}><Icon type="heart" style={{marginRight:'2px',color:'#999'}} /><div className={ContentCardCss.viewStatisNum}>{this.props.viewStarNum}</div></div> : ""}
                     </div>
 
                 </div>

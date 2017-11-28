@@ -72,7 +72,7 @@
     height: 40px;
 }
 
-.viewStatis,.starStatis{
+.viewStatis,.starStatis,.commentStatis{
     display: inline-block;
     font-size: 13px;
     margin-left: 12px;
