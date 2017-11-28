@@ -18,14 +18,18 @@ class ContentCard extends React.Component {
     }
 
     static propTypes = {
-        type: propTypes.oneOf(['normal','simple','manyPhoto']),
-        title: propTypes.string.isRequired,
+        type: propTypes.oneOf(['normal','mood']),
+        title: function(props, propName, componentName){
+            if(props.type == "normal" && props.title == null){
+                return new Error("The title must not be empty when the type is normal.");
+            }
+        },
         content: propTypes.string.isRequired,
         loading: propTypes.bool,
         tags: propTypes.shape({
             id: propTypes.number,
             name: propTypes.string
-        }).isRequired,
+        }),
         viewStatisNum: propTypes.number,
         viewCommentNum: propTypes.number,
         viewStarNum: propTypes.number
@@ -43,10 +47,9 @@ class ContentCard extends React.Component {
         return result;
     }
 
-    render() {
-        return (<div className={ContentCardCss.ContentCard}>
-            <Card loading={this.props.loading} bordered={false} noHovering={true}>
-                <div className={ContentCardCss.title}>{this.props.title}</div>
+    getContent = () => {
+        if(this.props.type == "normal"){
+            return (
                 <div className={ContentCardCss.content}>
                     <Row style={{height:'100%'}}>
                         <Col xs={24} sm={16} md={17} lg={18} xl={20} style={{height:'100%'}}>
@@ -59,6 +62,24 @@ class ContentCard extends React.Component {
                         </Col>
                     </Row>
                 </div>
+            );
+        }else if(this.props.type == "mood"){
+            return (
+                <div className={ContentCardCss.content}>
+                    <div className={ContentCardCss.contentText}>{this.props.content}</div>
+                    <div className={ContentCardCss.contentImg}>
+                        <img src={require('~/img/bg.jpg')}></img>
+                    </div>
+                </div>
+            );
+        }
+    }
+
+    render() {
+        return (<div className={ContentCardCss.ContentCard + " " + (this.props.type == "normal" ? ContentCardCss.normal : this.props.type == "mood" ? ContentCardCss.mood : "")}>
+            <Card loading={this.props.loading} bordered={false} noHovering={true}>
+                <div className={ContentCardCss.title}>{this.props.title}</div>
+                {this.getContent()}
                 <div className={ContentCardCss.meta}>
                     <ul className={ContentCardCss.tags}>
                         {this.getTags()}

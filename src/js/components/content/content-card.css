@@ -2,7 +2,7 @@
     border-bottom: 1px rgb(240, 240, 240) solid;
 }
 
-.title {
+.normal .title {
     max-width: 100%;
     height: 30px;
     line-height: 30px;
@@ -14,16 +14,21 @@
     font-weight: 500;
 }
 
-.content{
+.mood .title{
+    display: none;
+}
+
+.normal .content{
     max-width: 100%;
     min-height: 120px;
     overflow: hidden;
-    color: rgba(0, 0, 0, 0.75);
-    font-size: 14px;
-    font-weight: 400;
 }
 
-.contentText{
+.mood .content{
+    width: 100%;
+}
+
+.normal .contentText{
     padding-right: 10px;
     font-size: 13.5px;
     margin-bottom: 10px;
@@ -31,33 +36,65 @@
     max-height: 100px;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: rgba(0, 0, 0, 0.75);
+    font-weight: 400;
 }
 
-.contentImg{
+.mood .contentText{
+    margin-top: 10px;
+    font-size: 13.5px;
+    line-height: 25px;
+    max-height: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgba(0, 0, 0, 0.75);
+    font-weight: 400;
+}
+
+.normal .contentImg{
     height: 200px;
     position: relative;
     text-align: center;
     overflow: hidden;
 }
 
-.contentImg img{
+.mood .contentImg{
+    max-width: 100%;
+    max-height: 300px;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+.normal .contentImg img{
     height: 100%;
     margin: 0px -100%;
 }
 
-.meta{
+.mood .contentImg img{
     max-width: 100%;
+    max-height: 100%;
+    margin: 0px -100%;
+}
+
+.normal .meta{
+    width: 100%;
     margin-top: 5px;
 }
 
-.tags{
+.mood .meta{
+    width: 100%;
+    margin: 5px;
+}
+
+.normal .tags,.mood .tags{
     display: inline-block;
     height: 100%;
-    margin-left: 7px;
     float: left;
 }
 
-.tag{
+
+.normal .tag,.mood .tag{
     display: inline-block;
     padding: 2px 5px;
     color: #3f8de2;
@@ -67,12 +104,13 @@
     margin: 7px 7px 0px 0px;
 }
 
-.statis{
+
+.normal .statis,.mood .statis{
     float: left;
     height: 40px;
 }
 
-.viewStatis,.starStatis,.commentStatis{
+.normal .viewStatis,.normal .starStatis,.normal .commentStatis, .mood  .viewStatis,.mood .starStatis,.mood .commentStatis{
     display: inline-block;
     font-size: 13px;
     margin-left: 12px;
@@ -82,7 +120,7 @@
     cursor: pointer;
 }
 
-.viewStatisNum{
+.normal .viewStatisNum,.mood .viewStatisNum{
     display: inline-block;
     font-size: 13px;
     height: 40px;
@@ -90,5 +128,5 @@
     color: #999;
 }
 
-.starStatis{
+.normal .starStatis{
 }
