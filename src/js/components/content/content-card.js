@@ -18,18 +18,37 @@ class ContentCard extends React.Component {
     }
 
     static propTypes = {
-        type: propTypes.oneOf(['normal','mood']),
+        // type: propTypes.oneOf(['normal','mood']),
+        type: propTypes.oneOf(['normal']),
         title: function(props, propName, componentName){
             if(props.type == "normal" && props.title == null){
                 return new Error("The title must not be empty when the type is normal.");
             }
         },
         content: propTypes.string.isRequired,
+        //images: props.type == "normal" ? propTypes.string : propTypes.arrayOf(propTypes.string),
+        images: function(props, propName, componentName){
+            if(props.images != null){
+                if(props.type == "normal" && typeof props.images !== "string"){
+                    return new Error("When type is normal, images can only be string");
+                }else if(props.type == "mood" && typeof props.images !== "string"){
+                    if(Array.isArray(props.images)){
+                        for(var i = 0, len = props.images.length; i < len; i++){
+                            if(typeof props.images[i] !== "string"){
+                                return new Error("When type is mood, the images array can only be string");
+                            }
+                        }
+                    }else{
+                        return new Error("When type is mood, images can only be string or array");
+                    }
+                }
+            }
+        },
         loading: propTypes.bool,
-        tags: propTypes.shape({
+        tags: propTypes.arrayOf(propTypes.shape({
             id: propTypes.number,
             name: propTypes.string
-        }),
+        })),
         viewStatisNum: propTypes.number,
         viewCommentNum: propTypes.number,
         viewStarNum: propTypes.number
@@ -39,12 +58,31 @@ class ContentCard extends React.Component {
         var tags = this.props.tags;
         var result = [];
         if(tags != null){
-            // for(var i = 0, len = tags.length; i < len; i++){
-            //     result.push(<li key={i} className={ContentCardCss.tag}><Icon type="tag" style={{marginRight:'2px'}} />{tags[i].name}</li>);
-            // }
-            result.push(<li key={1} className={ContentCardCss.tag}><Icon type="tag" style={{marginRight:'2px'}} />{tags.name}</li>);
+            for(var i = 0, len = tags.length; i < len; i++){
+                result.push(<li key={i} className={ContentCardCss.tag}><Icon type="tag" style={{marginRight:'2px'}} />{tags[i].name}</li>);
+            }
+            //result.push(<li key={1} className={ContentCardCss.tag}><Icon type="tag" style={{marginRight:'2px'}} />{tags.name}</li>);
         }
         return result;
+
+    }
+
+    getContentImages = () => {
+        if(this.props.images != null && this.props.type == "mood"){
+            var result = [];
+            // var className = ContentCardCss.contentImg + " " + (this.props.images.length > 1 ? ContentCardCss.manyImage : "");
+            var className = ContentCardCss.contentImg;
+            for(var i = 0, len = this.props.images.length; i < len; i++){
+                result.push(<div key={i} className={className}>
+                    <img src={require('~/img/bg.jpg')}></img>
+                </div>);
+            }
+            return result;
+        }else if(this.props.images != null && this.props.type == "normal"){
+            return (<div key={i} className={ContentCardCss.contentImg}>
+                <img src={require(this.props.images[i])}></img>
+            </div>);
+        }
     }
 
     getContent = () => {
@@ -57,7 +95,7 @@ class ContentCard extends React.Component {
                         </Col>
                         <Col xs={24} sm={8} md={7} lg={6} xl={6} style={{height:'100%'}}>
                             <div className={ContentCardCss.contentImg}>
-                                <img src={require('~/img/bg.jpg')}></img>
+                                <img src={require(this.props.images)}></img>
                             </div>
                         </Col>
                     </Row>
@@ -67,8 +105,8 @@ class ContentCard extends React.Component {
             return (
                 <div className={ContentCardCss.content}>
                     <div className={ContentCardCss.contentText}>{this.props.content}</div>
-                    <div className={ContentCardCss.contentImg}>
-                        <img src={require('~/img/bg.jpg')}></img>
+                    <div className={ContentCardCss.manyImage}>
+                        {this.getContentImages()}
                     </div>
                 </div>
             );
